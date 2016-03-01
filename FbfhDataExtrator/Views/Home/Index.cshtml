@@ -1,0 +1,183 @@
+﻿@{
+    ViewBag.Title = "廠商基本資料查詢";
+}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="~/Content/common.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/showLoading.css" />
+    <script src="https://CNSIMEII.trade.gov.tw/webime/ime/arwin_loader.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery-1.11.3.min.js"></script>
+    <script LANGUAGE="JavaScript" SRC="~/Scripts/Check_Merchant2.js"></script>
+    <script LANGUAGE="JavaScript" SRC="https://fbfh.trade.gov.tw/rich/text/fbj/js/validation_3.js"></script>
+    <script type="text/javascript" src="~/Scripts/showLoading.js"></script>
+</head>
+<body id="bdy">
+    <form name="basic_form" METHOD="post">
+        <br>
+        <div>
+            <table class="table1">
+                <tr class="tr1bg1">
+                    <td colspan="2" height="34" width="970">
+                        <div align="center"><font face="細明體"><b>廠商基本資料查詢&nbsp;&nbsp;<a href="javascript:void( 0)" onClick="window.open('https://fbfh.trade.gov.tw/rich/text/common/downloadFile.asp?file1=/fbj/onlineHelp/QueryCompany.doc')"><img src="https://fbfh.trade.gov.tw/rich/text/fbj/images/G4.gif" border="0" align="absmiddle"></a></b></font></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="209" class="td1bg1" height="35">
+                        <font face="細明體">
+                            <input TYPE="radio" VALUE="1" CHECKED NAME="basic_select">
+                            <input type="hidden" name="queryType" value="C">
+                            統一編號：
+                        </font>
+                    </td>
+                    <td width="754" height="35" class="td2bg1">
+                        <font face="細明體">
+                            <input SIZE="10" NAME="uni_number" ONFOCUS="basic_form.basic_select[0].checked=true" maxlength=8>
+                        </font>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="209" class="td1bg1" height="35">
+                        <font face="細明體">
+                            <input name="basic_select" type="radio" value="2">
+                            廠商中文名稱：
+                        </font>
+                    </td>
+                    <td width="754" class="td2bg1">
+                        <input SIZE="50" class="arWebIME" id="chinese_name" NAME="chinese_name" ONFOCUS="basic_form.basic_select[1].checked=true" maxlength=50>
+                        <font face="細明體">
+                            (請至少輸入二碼中文名稱)
+                        </font>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="209" class="td1bg1" height="35">
+                        <font face="細明體">
+                            <input TYPE="radio" VALUE="3" NAME="basic_select">
+                            廠商英文名稱：
+                        </font>
+                    </td>
+                    <td width="754" height="35" class="td2bg1">
+                        <font face="細明體">
+                            <input SIZE="50" NAME="english_name" ONFOCUS="basic_form.basic_select[2].checked=true" maxlength=50>
+                        </font>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="209" class="td1bg1" height="35">
+                        <font face="細明體">
+                            <input TYPE="radio" VALUE="4" NAME="basic_select" maxlength=12>
+                            廠商代表人姓名：
+                        </font>
+                    </td>
+                    <td width="754" height="35" class="td2bg1">
+                        <input SIZE="10" class="arWebIME" id="owner" NAME="owner" ONFOCUS="basic_form.basic_select[3].checked=true">
+                        <font face="細明體">
+                            (請至少鍵入二碼中文姓名)
+                        </font>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="209" class="td1bg1" height="35">
+                        <font face="細明體">
+                            <input TYPE="radio" VALUE="5" NAME="basic_select">
+                            出進口貨品：
+                        </font>
+                    </td>
+                    <td width="754" class="td2bg1" height="35">
+                        <input SIZE="10" NAME="product" ONFOCUS="basic_form.basic_select[4].checked=true">
+                        <select ONFOCUS="basic_form.basic_select[4].checked=true" name="ccc_select">
+                            <option selected value="1">進口</option>
+                            <option value="2">出口</option>
+                        </select>
+                        <font face="細明體">
+                            (請鍵入ＣＣＣcode 前四碼)
+                        </font>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="209" class="td1bg1" height="35">
+                        <font face="細明體">
+                            <input TYPE="radio" VALUE="6" NAME="basic_select">
+                            出進口貨品名稱：
+                        </font>
+                    </td>
+                    <td width="754" class="td2bg1" height="35">
+                        <font face="細明體">
+                            <input SIZE="10" class="arWebIME" id="product_name" NAME="product_name" ONFOCUS="basic_form.basic_select[5].checked=true">
+                            <select ONFOCUS="basic_form.basic_select[5].checked=true" name="pname_select">
+                                <option selected value="1">進口</option>
+                                <option value="2">出口</option>
+                            </select>
+                        </font>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan="2">
+                        <input SIZE="10" NAME="txtCheckCode" maxlength=6 type="hidden">
+                    </td>
+                    <!--
+                    <td width="209" class="td1bg1" height="35">
+                        <font face="細明體">
+                            圖片驗證碼：
+                        </font>
+                    </td>
+                    <td width="754" class="td2bg1" height="35">
+                        <font face="細明體">
+                            <input SIZE="10" NAME="txtCheckCode" maxlength=6>
+                            <img src="https://fbfh.trade.gov.tw/rich/text/common/code_98/CheckImageCode.aspx" id="valid"  name="valid"  />
+                            <input type="button" name="btnReGenCode" value="重產圖片驗證碼" onClick="valid.src='https://fbfh.trade.gov.tw/rich/text/common/code_98/CheckImageCode.aspx?rf=' + (new Date()).getTime()" />
+                            <br>
+                            <font face="細明體" color="#FF0000" size="2">為預防不肖駭客以程式攻擊本系統或蓄意進行大量資料之查詢，並保障您的權益，請依圖示內容輸入驗證碼。</font>
+                        </font>
+                    </td>
+                    -->
+                </tr>
+
+                <!--<tr>
+                    <td width="209" class="td1bg1" height="35">
+
+                        <font face="細明體">
+                            <input TYPE="radio" VALUE="7" NAME="basic_select">
+                            新登記日期：
+                        </font>
+                    </td>
+                    <td width="754" bgcolor="#FFFFFF" class="a1" height="35">
+                        <font face="細明體">
+                            <input SIZE="10" NAME="reg_date1" ONFOCUS="basic_form.basic_select[6].checked=true" maxlength=7>－
+                            <input SIZE="10" NAME="reg_date2" ONFOCUS="basic_form.basic_select[6].checked=true" maxlength=7>
+                        (查詢範例：0940101-0940301)</font></td>
+                </tr>-->
+                <tr class="tr1bg1">
+                    <td colspan="2" height="35" width="970">
+                        <p align="center">
+                            <font face="新細明體">
+                                <input type="button" name="query" value="查    詢"
+                                       onclick="merchant_dispatch(basic_form)"
+                                       style="font-family: 細明體"> &nbsp;&nbsp; <input type="reset" name="reset" value="重新鍵入" style="font-family: 細明體">
+                            </font>
+                        </p>
+                    </td>
+                </tr>
+            </table>
+            <table>
+                <tr>
+                    <td>
+                        <font face="細明體" color="#FF0000">備註:</font>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <font face="細明體" color="#FF0000">網站公開之依據：出進口廠商登記辦法第7條之1。</font>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </form>
+</body>
+</html>

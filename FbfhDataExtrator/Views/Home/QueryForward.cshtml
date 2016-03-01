@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "廠商查詢結果";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" type="text/css" href="~/Content/themes/default/easyui.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/themes/icon.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/themes/color.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/showLoading.css" />
+    <script type="text/javascript" src="~/Scripts/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/showLoading.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery.easyui-1.4.3.min.js"></script>
+    <script type="text/javascript">
+        var formModel=@Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model));
+    </script>
+</head>
+<body id="bdy">
+    <div>
+        <table id="dgCust" style="width:auto"></table>
+    </div>
+    <div id="tbar">
+        <a href="/home/index" class="easyui-linkbutton" data-options="iconCls:'icon-search'" >查詢</a>
+        <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-save'" onclick="Import()">儲存</a>
+    </div>
+
+    <div id="winDetail" class="easyui-window" data-options="modal: true,closed:true, title: '廠商基本資料'" style="width:600px;height:400px">
+        <div id="pnlDetail">
+        </div>
+    </div>
+    <script type="text/javascript" src="~/Scripts/View/home.queryForward.js">
+        $("#winDetail").window('close');
+    </script>
+</body>
+</html>
