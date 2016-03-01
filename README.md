@@ -3,6 +3,7 @@
 ![ScreenShot](https://github.com/stanChung/FbfhDataExtrator/blob/master/FbfhDataExtrator_H1.PNG)
 ![ScreenShot](https://github.com/stanChung/FbfhDataExtrator/blob/master/FbfhDataExtrator_H2.PNG)
 ![ScreenShot](https://github.com/stanChung/FbfhDataExtrator/blob/master/FbfhDataExtrator_H3.PNG)
+![ScreenShot](https://github.com/stanChung/FbfhDataExtrator/blob/master/FbfhDataExtrator_H4.PNG)
 
 ###**功能描述**
 >- ASP.NET+Html Agility Pack+Oracle
